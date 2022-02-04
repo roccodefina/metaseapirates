@@ -201,7 +201,7 @@ function App() {
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
         image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
       >
-        <video style={{ height: '90vh' }} loop="true" autoplay="autoplay" id="vid" muted>
+        <video style={{ height: '90vh', width: '100%' }} loop="true" autoplay="autoplay" id="vid" muted>
           <source src="/config/images/bg.mp4" type="video/mp4" />
           Your browser does not support HTML5 video.
         </video>
