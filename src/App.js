@@ -94,6 +94,11 @@ export const StyledLink = styled.a`
   text-decoration: none;
 `;
 
+const Socials = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
@@ -193,6 +198,10 @@ function App() {
     getData();
   }, [blockchain.account]);
 
+  useEffect(() => {
+    document.title = "Metasea Pirates"
+ }, []);
+
   return (
     <s.Screen>
       <s.Container
@@ -205,6 +214,14 @@ function App() {
           <source src="/config/images/bg.mp4" type="video/mp4" />
           Your browser does not support HTML5 video.
         </video>
+        <Socials>
+          <a style={{ marginRight: '20px' }} href="https://discord.gg/tvxuvbFgvg" target="_blank" rel="noreferrer">
+              <img width="40px" src="/config/images/discord.png" alt="" />
+          </a>
+          <a style={{ marginLeft: '20px' }} href="https://twitter.com/MetaseaPirates" target="_blank" rel="noreferrer">
+              <img width="40px" src="/config/images/twitter.png" alt="" />
+          </a>
+        </Socials>
         {/* <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
         <s.SpacerSmall />
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
