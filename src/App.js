@@ -226,7 +226,7 @@ DAO wallet funded by 30% mint sales + 50% royalties"/> */}
           {/* <meta property="og:description" content="2420 Junkings NFT with a collaborative roadmap decided by its extremely exclusive DAO community.
 By minting a Junking you are becoming a citizen of our world, whose advantages and rights will grow over time!
 DAO wallet funded by 30% mint sales + 50% royalties" key="description" /> */}
-          {/* <meta property="og:image" content='/junkinglogoB.png' key="image" /> */}
+          <meta property="og:image" content="%PUBLIC_URL%/logo-cool.png" key="image" />
           <meta name="theme-color" content="#55bbee" key="theme-color" />
           <meta name="twitter:card" content="summary_large_image" key="misc-card" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1"></meta>
