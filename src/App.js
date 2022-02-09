@@ -5,6 +5,9 @@ import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
 
+import { Helmet } from 'react-helmet'
+import ComingSoon from "./components/ComingSoon";
+
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
@@ -93,11 +96,6 @@ export const StyledLink = styled.a`
   color: var(--secondary);
   text-decoration: none;
 `;
-
-const Socials = styled.div`
-  display: flex;
-  justify-content: center;
-`
 
 function App() {
   const dispatch = useDispatch();
@@ -210,18 +208,30 @@ function App() {
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
         image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
       >
-        <video style={{ height: '90vh', width: '100%' }} loop="true" autoplay="autoplay" id="vid" muted>
-          <source src="/config/images/bg.mp4" type="video/mp4" />
-          Your browser does not support HTML5 video.
-        </video>
-        <Socials>
-          <a style={{ marginRight: '20px' }} href="https://discord.gg/tvxuvbFgvg" target="_blank" rel="noreferrer">
-              <img width="40px" src="/config/images/discord.png" alt="" />
-          </a>
-          <a style={{ marginLeft: '20px' }} href="https://twitter.com/MetaseaPirates" target="_blank" rel="noreferrer">
-              <img width="40px" src="/config/images/twitter.png" alt="" />
-          </a>
-        </Socials>
+        <Helmet>
+          <title>Metasea Pirates</title>
+          <meta property="author" content="Serode Dev" key="author" />
+          <link rel="icon" type="image/png" href="/favicon.ico" key="favicon" />
+          {/* <meta name="description" content="2420 Junkings NFT with a collaborative roadmap decided by its extremely exclusive DAO community.
+By minting a Junking you are becoming a citizen of our world, whose advantages and rights will grow over time!
+DAO wallet funded by 30% mint sales + 50% royalties"/> */}
+          {/* <meta name="keywords" content="NFT, Collection, Solana, Solanalysis, Art"/> */}
+          {/* Fixed */}
+          <meta property="og:locale" content="en_US" />
+          <meta property="og:type" content="website" key="og_type" />
+
+          {/* discord large image embed */}
+          <meta property="og:title" content="Welcome to Metasea Pirates" key="title" />
+          <meta property="og:site_name" content="Metasea Pirates" key="site_name" />
+          {/* <meta property="og:description" content="2420 Junkings NFT with a collaborative roadmap decided by its extremely exclusive DAO community.
+By minting a Junking you are becoming a citizen of our world, whose advantages and rights will grow over time!
+DAO wallet funded by 30% mint sales + 50% royalties" key="description" /> */}
+          {/* <meta property="og:image" content='/junkinglogoB.png' key="image" /> */}
+          <meta name="theme-color" content="#55bbee" key="theme-color" />
+          <meta name="twitter:card" content="summary_large_image" key="misc-card" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1"></meta>
+        </Helmet>
+        <ComingSoon />
         {/* <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
         <s.SpacerSmall />
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
