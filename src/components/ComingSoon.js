@@ -142,7 +142,7 @@ const ComingSoon = () => {
                     <img width="40px" src="/config/images/discord.png" alt="" />
                 </a>
             </ThirdClue>
-            <video style={{ height: '90vh', width: '100%' }} loop="true" autoplay="autoplay" id="vid" muted>
+            <video style={{ height: '90vh', width: '100%' }} loop="true" autoplay="autoplay" id="vid" muted playsinline>
                 <source src="/config/images/bg.mp4" type="video/mp4" />
                 Your browser does not support HTML5 video.
             </video>
