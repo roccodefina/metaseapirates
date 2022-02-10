@@ -64,7 +64,7 @@ const positions = [
         },
         {
             h: '80vh',
-            w: '800vw'
+            w: '80vw'
         },
     ],
     [
