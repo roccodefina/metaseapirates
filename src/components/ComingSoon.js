@@ -10,11 +10,10 @@ const FirstClue = styled.div`
     width: 80px;
     height: 50px;
 
-    background: black;
     position: absolute;
-    top: 20vh;
-    left: 10vw;
-    // cursor: pointer;
+    top: ${props => props.position.h};
+    left: ${props => props.position.w};
+    cursor: pointer;
     z-index: 100;
 `
 
@@ -22,10 +21,9 @@ const SecondClue = styled.div`
     width: 80px;
     height: 50px;
 
-    background: black;
     position: absolute;
-    top: 40vh;
-    right: 20vw;
+    top: ${props => props.position.h};
+    right: ${props => props.position.w};
     cursor: pointer;
     z-index: 100;
 `
@@ -33,13 +31,71 @@ const SecondClue = styled.div`
 const ThirdClue = styled.div`
     width: 80px;
     height: 50px;
-    background: black;
     position: absolute;
-    top: 70vh;
-    left: 20vw;
+    top: ${props => props.position.h};
+    left: ${props => props.position.w};
     cursor: pointer;
     z-index: 100;
+    text-align: center;
 `
+const positions = [
+    [
+        {
+            h:'20vh',
+            w:'10vw'
+        },
+        {
+            h: '40vh',
+            w: '20vw'
+        },
+        {
+            h: '70vh',
+            w: '20vw'
+        },
+    ],
+    [
+        {
+            h:'70vh',
+            w:'80vw'
+        },
+        {
+            h: '70vh',
+            w: '70vw'
+        },
+        {
+            h: '80vh',
+            w: '800vw'
+        },
+    ],
+    [
+        {
+            h:'5vh',
+            w:'50vw'
+        },
+        {
+            h: '80vh',
+            w: '80vw'
+        },
+        {
+            h: '20vh',
+            w: '20vw'
+        },
+    ],
+    [
+        {
+            h:'80vh',
+            w:'10vw'
+        },
+        {
+            h: '30vh',
+            w: '10vw'
+        },
+        {
+            h: '50vh',
+            w: '20vw'
+        },
+    ],
+]
 
 
 
@@ -47,36 +103,41 @@ const ComingSoon = () => {
     const [firstClue, setFirstClue] = React.useState(false);
     const [secondClue, setSecondClue] = React.useState(false);
     const [thirdClue, setThirdClue] = React.useState(false);
+    const [cluePosition, setCluePosition] = React.useState(positions[0])
+
+
+    React.useEffect(() => {
+        setCluePosition(positions[Math.floor(Math.random() * 4)])
+    }, [])
+
 
     const revealFirstClue = e => {
-        console.log('First')
-        setFirstClue(false)
+        setFirstClue(true)
     }
 
     const revealSecondClue = e => {
         if (firstClue) {
-            console.log('Second')
             setSecondClue(true)
         }
     }
 
     const revealThirdtClue = e => {
         if (secondClue) {
-            console.log('Third')
             setThirdClue(true)
         }
     }
 
     return (
         <>
-            <FirstClue onClick={e => (revealFirstClue(e))}>
-                <p hidden={firstClue ? false : true} style={{ color: 'white' }}>First Clue</p>
+            <FirstClue position={cluePosition[0]} onClick={e => (revealFirstClue(e))}>
+                <img hidden={firstClue ? false : true} width={70} src="/config/images/X.png" />
             </FirstClue>
-            <SecondClue hidden={firstClue ? false : true} onClick={e => (revealSecondClue(e))}>
-                <p hidden={secondClue ? false : true} style={{ color: 'white' }}>Second Clue</p>
+            <SecondClue position={cluePosition[1]} hidden={firstClue ? false : true} onClick={e => (revealSecondClue(e))}>
+                <img hidden={secondClue ? false : true} width={70} src="/config/images/X.png" />
+
             </SecondClue>
-            <ThirdClue hidden={secondClue ? false : true} onClick={e => (revealThirdtClue(e))}>
-                <p hidden={thirdClue ? false : true} style={{ color: 'white' }}>Third Clue</p>
+            <ThirdClue position={cluePosition[2]} hidden={secondClue ? false : true} onClick={e => (revealThirdtClue(e))}>
+                <img hidden={thirdClue ? false : true} width={70} src="/config/images/X.png" />
                 <a hidden={thirdClue ? false : true} style={{ marginRight: '20px' }} href="https://discord.gg/tvxuvbFgvg" target="_blank" rel="noreferrer">
                     <img width="40px" src="/config/images/discord.png" alt="" />
                 </a>
