@@ -138,7 +138,7 @@ const ComingSoon = () => {
             </SecondClue>
             <ThirdClue position={cluePosition[2]} hidden={secondClue ? false : true} onClick={e => (revealThirdtClue(e))}>
                 <img hidden={thirdClue ? false : true} width={70} src="/config/images/X.png" />
-                <a hidden={thirdClue ? false : true} style={{ marginRight: '20px' }} href="https://discord.gg/tvxuvbFgvg" target="_blank" rel="noreferrer">
+                <a hidden={thirdClue ? false : true} style={{ marginRight: '20px' }} href="https://discord.gg/gBwsaEtC" target="_blank" rel="noreferrer">
                     <img width="40px" src="/config/images/discord.png" alt="" />
                 </a>
             </ThirdClue>
